@@ -19,7 +19,7 @@ As browser does not understand the typescript it needs to be compiled to regular
 Add  `-w` stands for watch to automatically compile on every save
 
 
-## 01 - Types
+## 01 - Types , Union Types and Optional Parameters
 Once the type is defined it won't change
 ``` javascript 
     let character: string
@@ -35,7 +35,47 @@ Below example shows a array can have several types of data you specify.
     mixed.push(23); // Not allowed
     mixed.push(true); //allowed
 
+    //If you want any type of data in the array use *any*
+    let mixed : any[] = [];
+    mixed.push('hello'); //allowed
+    mixed.push(23); // allowed
+    mixed.push(true); //allowed
+
     let obj = object; 
+
+    //How to set optional parameter to function
+    let add: Function;
+    //here the question mark ? denotes its a optional parameter 
+    //and the value 10 is default value
+    //But you cannot use  ? and the default value at the same time
+    
+    add = (a :number, b : number, c?: number|string) => {
+        console.log(c);
+        return a + b;
+    }
+    add = (a :number, b : number, c: number|string = 10) => {
+        console.log(c);
+        return a + b;
+    }
+    //What type of value it returns? Yes you are right number
+    add = (a :number, b : number, c: number|string = 10):number => {
+        console.log(c);
+        return a + b;
+    }
+
 ```
 
 Note : always set a empty array value else it will give you error while using array push() function
+
+
+## Workflow and tsconfig
+This command creates the tsconfig file where you can decide the input output directory and various other things
+```
+tsc --init
+```
+
+Note : if you want to only compile files set in the int rootDir path use 
+
+"include": ['src'] //src being the path of typescript files
+
+
