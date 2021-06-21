@@ -22,3 +22,8 @@ const add: Function = (a:number ,b:number , c: number | string = 10 ):number => 
 }
 
 add(10,20,10);
+
+
+
+//TYPE ALIAS
+

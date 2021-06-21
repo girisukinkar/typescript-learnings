@@ -79,3 +79,51 @@ Note : if you want to only compile files set in the int rootDir path use
 "include": ['src'] //src being the path of typescript files
 
 
+## 02 - Type Alias
+Since same types can be repeated in multiple places we can create a general type and reuse it
+
+```javascript
+
+    //BEFORE
+    const logger = (uid: string | number) => uid;
+    const logger1 = (uid: string | number) => uid;
+    //We are repeating the type
+
+    //AFTER
+    type StringOrNum = string | number;
+    const logger = (uid: StringorNum) => uid;
+    const logger1 = (uid: StringorNum) => uid;
+
+```
+
+## 03 - Function Signatures
+
+The type of params in the function and its return type can be inferred explicitly 
+
+```javascript
+    let calc:(a:number, b:number, c:string) => number;
+
+    //here the function we dont write the return type as the above code matches the signature
+    calc = (numOne:number, numTwo:number, action:string) =>{
+        return action === 'add' ? numOne + numTwo ? numOne - numTwo;
+    }
+```
+
+## DOM & Type Casting
+
+Typescript is so smart it has a special type for every DOM element
+
+```javascript
+    
+    //Eg : if you hover on below line tsc shows its anchor type element
+    const anchor = document.querySelector('a');
+    console.log(anchor);
+
+    //But if you try to access a element by class
+    const anchor = document.querySelector('.new-item');
+    //Typescript will say only type element as its not sure 
+
+    //The fix is giving it a type
+    const anchor = document.querySelector('.new-item') as HTMLFormElement;
+```
+
