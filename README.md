@@ -109,7 +109,7 @@ The type of params in the function and its return type can be inferred explicitl
     }
 ```
 
-## DOM & Type Casting
+## 04 - DOM & Type Casting
 
 Typescript is so smart it has a special type for every DOM element
 
@@ -127,3 +127,22 @@ Typescript is so smart it has a special type for every DOM element
     const anchor = document.querySelector('.new-item') as HTMLFormElement;
 ```
 
+## 05 - Classes
+Passing the values to the constructors directly with modifiers
+example
+```javascript
+export class Invoice{
+  
+    constructor(
+        readonly client:string,
+        private details:string,
+        public amount:number){
+
+    }
+
+    format(){
+        return `${this.client} owes $${this.amount} for ${this.details}`;
+    }
+}
+
+```
