@@ -1,4 +1,28 @@
 //Interfaces
+interface IsPerson{
+    name : string;
+    age : number;
+    speak(a: string) : void;
+    spend(a: number) : number;
+}
+
+const me : IsPerson = {
+    name : "Girish",
+    age: 27,
+    speak(text: string) : void{
+        console.log(text)
+    },
+    spend(amount:number) : number{
+        console.log('I Spent', amount);
+        return amount;
+    }
+}
+
+const greetMe = (person : IsPerson) => {
+    console.log(`This is ${person.name}`);
+}
+greetMe(me);
+console.log({me});
 
 import { Invoice } from './classes/Invoice.js'; //Note : even while working with TS we use JS
 

@@ -146,3 +146,36 @@ export class Invoice{
 }
 
 ```
+
+## 06 - Interfaces
+We can define a certain structure of a class or object its type and its return type
+```javascript
+    //This is a fixed structure 
+    interface IsPerson{
+    name : string;
+    age : number;
+    speak(a: string) : void;
+    spend(a: number) : number;
+}
+
+//Now we create a object with the interface IsPerson Structure
+const me : IsPerson = {
+    name : "Girish",
+    age: 27,
+    speak(text: string) : void{
+        console.log(text)
+    },
+    spend(amount:number) : number{
+        console.log('I Spent', amount);
+        return amount;
+    }
+}
+
+const greetMe = (person : IsPerson) => {
+    //As you type the intellisense gives you the options of whats available
+    console.log(`This is ${person.name}`);
+}
+
+greetMe(me);
+
+```
