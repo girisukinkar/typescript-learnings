@@ -148,6 +148,7 @@ export class Invoice{
 ```
 
 ## 06 - Interfaces
+An interface defines how an object should look. <br>
 We can define a certain structure of a class or object its type and its return type
 ```javascript
     //This is a fixed structure 
@@ -178,4 +179,42 @@ const greetMe = (person : IsPerson) => {
 
 greetMe(me);
 
+```
+
+
+## 07 - Generics
+Allows us to create us reusable blocks of code that requires dynamic values
+I know its confusing lets make it simple
+
+```javascript
+//Lets see you pass an object to a function
+const addUID = (obj: object) => {
+const uid = Math.floor(Math.random() * 100);
+return {...obj, uid};
+}
+
+let resultOne = addUID({name:'Girish',age:27});
+ // Now the typscript will show error that it doesnt know name property
+console.log(resultOne.name)
+
+//Here's where the Generics comes into picture
+const addUID = <T extends object>(obj: T) => {
+const uid = Math.floor(Math.random() * 100);
+return {...obj, uid};
+}
+let resultOne = addUID({name:'Girish',age:27});
+ // Now the typscript will show all the properties you passed through function
+console.log(resultOne.name)
+
+
+//BONUS TIP
+//You can specify what type of property it needs with type as well
+const addUID = <T extends {name:string}>(obj: T) => {
+const uid = Math.floor(Math.random() * 100);
+return {...obj, uid};
+}
+
+//This will throw error where is the name property?.  also it should be a number
+
+let resultOne = addUID({age:27});
 ```

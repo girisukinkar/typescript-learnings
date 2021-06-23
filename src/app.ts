@@ -42,4 +42,14 @@ form.addEventListener('submit', (e:Event) => {
        doc
     );
         list.render(doc, type.value, 'end');
-})
+});
+
+
+//GENERICS
+
+const addUID = <T extends {name:string}>(obj: T) => {
+    const uid = Math.floor(Math.random() * 100);
+    return {...obj, uid};
+    }
+    
+    let resultOne = addUID({name:'gi',age:27});
