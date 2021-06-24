@@ -151,8 +151,8 @@ export class Invoice{
 An interface defines how an object should look. <br>
 We can define a certain structure of a class or object its type and its return type
 ```javascript
-    //This is a fixed structure 
-    interface IsPerson{
+ //This is a fixed structure 
+interface IsPerson{
     name : string;
     age : number;
     speak(a: string) : void;
@@ -218,3 +218,44 @@ return {...obj, uid};
 
 let resultOne = addUID({age:27});
 ```
+
+### Generics with Interfaces
+Suppose you want to define a interface but with one property that can be anything you want in other blocks on code <br>
+
+For Example
+
+```javascript
+Interface Resource {
+    succecss:boolean,
+    message:string,
+    data: '???' //what you want it to be?
+}
+
+```
+Yes we can do that I know you will say put any but wait what if i want it string sometimes and othertimes an object?<br>
+Generics to the rescue my friend
+
+```javacript
+Interface Resource<T> {
+    success:boolean,
+    message:string,
+    data: T
+}
+const obj1: Resource<T:string> = {
+      success:true,
+    message:'Hoooray',
+    data: 'Wassup doc'
+}
+const obj2: Resource<T:object> = {
+      success:true,
+    message:'Oh this time an object huh',
+    data: {name:'GIrish',age:27}
+}
+```
+
+## 08 - ENUMS
+You must have created some Constants that stores status of payments or profiles etc <br>
+For example
+
+
+
