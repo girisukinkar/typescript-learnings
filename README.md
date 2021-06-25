@@ -256,6 +256,10 @@ const obj2: Resource<T:object> = {
 ## 08 - ENUMS
 You must have created some Constants that stores status of payments or profiles etc <br>
 For example
+```javascript
+enum PAYMENT_STATUS_TYPE {APPROVED = 1, PENDING = 0, REJECTED = 2, IN_REVIEW = 3}
 
+console.log('PAYMENT TYPE',PAYMENT_STATUS_TYPE.PENDING);
+```
 
 

@@ -53,3 +53,9 @@ const addUID = <T extends {name:string}>(obj: T) => {
     }
     
     let resultOne = addUID({name:'gi',age:27});
+
+
+//ENUMS
+enum PAYMENT_STATUS_TYPE {APPROVED = 1, PENDING = 0, REJECTED = 2, IN_REVIEW = 3}
+
+console.log('PAYMENT TYPE',PAYMENT_STATUS_TYPE.PENDING);

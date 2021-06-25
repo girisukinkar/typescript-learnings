@@ -32,3 +32,18 @@ form.addEventListener('submit', (e) => {
     console.log(doc);
     list.render(doc, type.value, 'end');
 });
+//GENERICS
+const addUID = (obj) => {
+    const uid = Math.floor(Math.random() * 100);
+    return Object.assign(Object.assign({}, obj), { uid });
+};
+let resultOne = addUID({ name: 'gi', age: 27 });
+//ENUMS
+var PAYMENT_STATUS_TYPE;
+(function (PAYMENT_STATUS_TYPE) {
+    PAYMENT_STATUS_TYPE[PAYMENT_STATUS_TYPE["APPROVED"] = 1] = "APPROVED";
+    PAYMENT_STATUS_TYPE[PAYMENT_STATUS_TYPE["PENDING"] = 0] = "PENDING";
+    PAYMENT_STATUS_TYPE[PAYMENT_STATUS_TYPE["REJECTED"] = 2] = "REJECTED";
+    PAYMENT_STATUS_TYPE[PAYMENT_STATUS_TYPE["IN_REVIEW"] = 3] = "IN_REVIEW";
+})(PAYMENT_STATUS_TYPE || (PAYMENT_STATUS_TYPE = {}));
+console.log('PAYMENT TYPE', PAYMENT_STATUS_TYPE.PENDING);
