@@ -263,3 +263,16 @@ console.log('PAYMENT TYPE',PAYMENT_STATUS_TYPE.PENDING);
 ```
 
 
+## 09 - TUPLES
+The type is defined for every position for example
+
+```javascript
+let arr = ['girish', 27, true]; //Types in each position is string, number, bool
+//Which can be changes
+arr[0] = 22; //acceptable
+
+//But if you dont want it accepting any value at specific position use Tuples
+
+let arr : [string, number,boolean] =['girish', 27, true];
+arr[0] = 22 //throws error as only string is accepted
+```
