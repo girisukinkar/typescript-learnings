@@ -276,3 +276,6 @@ arr[0] = 22; //acceptable
 let arr : [string, number,boolean] =['girish', 27, true];
 arr[0] = 22 //throws error as only string is accepted
 ```
+
+## Project made in Typescript
+Coming soon.....
